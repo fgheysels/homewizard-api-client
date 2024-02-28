@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Fg.HomeWizard.EnergyApi.Client
 {
-    internal class HomeWizardService : IHomeWizardService
+    public class HomeWizardService : IHomeWizardService
     {
         private static readonly HttpClient _http = new HttpClient();
 
