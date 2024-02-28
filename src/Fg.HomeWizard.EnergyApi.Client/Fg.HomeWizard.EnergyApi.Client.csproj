@@ -5,6 +5,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Authors>Frederik Gheysels</Authors>
+    <Copyright>Copyright © 2024 Frederik Gheysels</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/fgheysels/homewizard-api-client</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fgheysels/homewizard-api-client</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <Description>Offers easy integration with the Homewizard Energy API in .NET</Description>
+    <PackageTags>Homewizard Energy</PackageTags>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="8.0.2" />
     <PackageReference Include="Zeroconf" Version="3.6.11" />
