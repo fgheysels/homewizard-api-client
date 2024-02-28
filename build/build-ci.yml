@@ -1,0 +1,33 @@
+name: $(date:yyyyMMdd)$(rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - src/*
+
+pr:
+  paths:
+    include:
+      - src/*
+      - build/ci-build.yml
+
+stages:
+  - stage: Build
+    jobs:
+      - job: Compile_and_test
+        pool:
+          vmImage: 'ubuntu-22.04'
+        steps:
+          - task: DotNetCoreCLI@2
+            displayName: 'Build Homewizard Energy API client solution'
+            inputs:
+              projects: 'src/Fg.HomeWizard.EnergyApi.Client.sln'
+          - task: DotNetCoreCLI@2
+            displayName: 'Run unittests'
+            inputs:
+              command: 'test'
+              projects: 'src/**/*.csproj'
+              testRunTitle: 'Homewizard Api Client tests'
