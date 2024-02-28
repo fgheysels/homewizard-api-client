@@ -25,16 +25,16 @@ stages:
           vmImage: 'ubuntu-22.04'
         steps:          
           - task: DotNetCoreCLI@2
-            displayName: 'Build Fg.DbUtils solution'
+            displayName: 'Build Homewizard Energy API client solution'
             inputs:
-              projects: 'src/Fg.DbUtils.sln'
+              projects: 'src/Fg.HomeWizard.EnergyApi.Client.sln'
               arguments: --configuration $(Build.Configuration) 
           - task: DotNetCoreCLI@2
-            displayName: 'Run integration tests'
+            displayName: 'Run tests'
             inputs:
               command: 'test'
-              projects: 'src/Fg.DbUtils.Dapper.IntegrationTests/*.csproj'
-              testRunTitle: 'DbUtils integrationtests with Dapper' 
+              projects: 'src/src/Fg.HomeWizard.EnergyApi.Client.Tests/*.csproj'
+              testRunTitle: 'Unit Tests' 
   - stage: Release
     jobs:
       - job: Package_and_push
@@ -62,7 +62,7 @@ stages:
               includesource: false
               versioningScheme: byEnvVar
               versionEnvVar: PackageVersion
-              projects: 'src/Fg.DbUtils/*.csproj'
+              projects: 'src/Fg.HomeWizard.EnergyApi.Client/*.csproj'
               arguments: --configuration $(Build.Configuration)
               buildProperties: 'VersionPrefix=$(PackageVersion)'
               outputDir: $(Build.StagingDirectory)/nupkg
