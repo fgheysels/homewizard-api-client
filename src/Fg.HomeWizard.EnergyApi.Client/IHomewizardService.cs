@@ -5,6 +5,6 @@ namespace Fg.HomeWizard.EnergyApi.Client
 {
     public interface IHomeWizardService
     {
-        Task<Measurement> GetCurrentMeasurements();
+        Task<Measurement> GetCurrentMeasurementsAsync();
     }
 }

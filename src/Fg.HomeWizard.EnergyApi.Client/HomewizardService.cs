@@ -9,12 +9,12 @@ namespace Fg.HomeWizard.EnergyApi.Client
     {
         private static readonly HttpClient _http = new HttpClient();
 
-        public HomeWizardService(HomewizardDevice p1Meter)
+        public HomeWizardService(HomeWizardDevice p1Meter)
         {
             _http.BaseAddress = new Uri($"http://{p1Meter.IPAddress}/api/");
         }
 
-        public async Task<Measurement> GetCurrentMeasurements()
+        public async Task<Measurement> GetCurrentMeasurementsAsync()
         {
             var response = await _http.GetAsync("v1/data");
 
