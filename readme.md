@@ -1,7 +1,12 @@
-# Introduction
+# Fg.HomeWizard.EnergyApi.Client
+
+[![Build Status](https://frederikgheysels.visualstudio.com/GitHub%20Pipelines/_apis/build/status%2FHomewizard.Api.Client%2FHomewizard.Api.Client%20CI?branchName=main)](https://frederikgheysels.visualstudio.com/GitHub%20Pipelines/_build/latest?definitionId=11&branchName=main)
+![NuGet Badge](https://buildstats.info/nuget/fg.homewizard.energyapi.client?includePreReleases=true)](https://www.nuget.org/packages/fg.homewizard.energyapi.client/)
 
 This library offers an easy integration with the HomeWizard Energy API.
 It is available via NuGet and can be installed via:
+
+# Installation
 
 ```
 PM> Install-Package Fg.HomeWizard.EnergyApi.Client
