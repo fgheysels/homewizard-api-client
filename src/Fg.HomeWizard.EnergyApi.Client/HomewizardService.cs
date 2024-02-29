@@ -28,6 +28,8 @@ namespace Fg.HomeWizard.EnergyApi.Client
 
             var measurement = JsonSerializer.Deserialize<Measurement>(json);
 
+            measurement.Timestamp = DateTimeOffset.UtcNow;
+
             if (measurement == null)
             {
                 throw new InvalidOperationException("Unable to deserialize response to model");
