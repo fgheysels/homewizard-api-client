@@ -153,5 +153,11 @@ namespace Fg.HomeWizard.EnergyApi.Client
         /// </summary>
         [JsonPropertyName("active_current_l3_a")]
         public double ActiveCurrentPhase3 { get; set; }
+
+        /// <summary>
+        /// Line frequency in hertz
+        /// </summary>
+        [JsonPropertyName("active_frequency_hz")]
+        public double ActiveFrequencyInHerz { get; set; }
     }
 }
