@@ -11,8 +11,9 @@ To be able to retrieve data that is exposed by your HomeWizard P1 device, you fi
 Find your `HomeWizardDevice` in your network using its hostname with the `HomewizardDeviceResolver`:
 
 ```csharp
-HomeWizardDevice device = await HomeWizardDeviceResolver.FindHomeWizardDeviceAsync("HW-p1meter-015AB0", logger);
+HomeWizardDevice device = await HomeWizardDeviceResolver.FindHomeWizardDeviceAsync("p1meter-015AB0", logger);
 ```
+> Notice that you need to remove the `HW-` part of the hostname.
 
 Once the device has been found, you can instantiate a `HomeWizardService` instance and read out the last readings via the code below:
 
