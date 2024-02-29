@@ -25,9 +25,9 @@ stages:
             displayName: 'Build Homewizard Energy API client solution'
             inputs:
               projects: 'src/Fg.HomeWizard.EnergyApi.Client.sln'
-          # - task: DotNetCoreCLI@2
-          #   displayName: 'Run unittests'
-          #   inputs:
-          #     command: 'test'
-          #     projects: 'src/**/*.csproj'
-          #     testRunTitle: 'Homewizard Api Client tests'
+          - task: DotNetCoreCLI@2
+            displayName: 'Run unittests'
+            inputs:
+              command: 'test'
+              projects: 'src/**/*.csproj'
+              testRunTitle: 'Homewizard Api Client tests'

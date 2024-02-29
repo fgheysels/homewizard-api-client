@@ -29,12 +29,12 @@ stages:
             inputs:
               projects: 'src/Fg.HomeWizard.EnergyApi.Client.sln'
               arguments: --configuration $(Build.Configuration) 
-          # - task: DotNetCoreCLI@2
-          #   displayName: 'Run tests'
-          #   inputs:
-          #     command: 'test'
-          #     projects: 'src/src/Fg.HomeWizard.EnergyApi.Client.Tests/*.csproj'
-          #     testRunTitle: 'Unit Tests' 
+          - task: DotNetCoreCLI@2
+            displayName: 'Run tests'
+            inputs:
+              command: 'test'
+              projects: 'src/src/Fg.HomeWizard.EnergyApi.Client.Tests/*.csproj'
+              testRunTitle: 'Unit Tests' 
   - stage: Release
     jobs:
       - job: Package_and_push
