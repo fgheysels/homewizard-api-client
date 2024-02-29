@@ -9,7 +9,7 @@ namespace Fg.HomeWizard.EnergyApi.Client
     {
         private static readonly HttpClient _http = new HttpClient();
 
-        public HomeWizardService(HomeWizardDevice p1Meter)
+        public HomeWizardService(HomewizardDevice p1Meter)
         {
             _http.BaseAddress = new Uri($"http://{p1Meter.IPAddress}/api/");
         }
