@@ -7,10 +7,16 @@ namespace Fg.HomeWizard.EnergyApi.Client
 {
     public class HomeWizardService : IHomeWizardService
     {
-        private static readonly HttpClient _http = new HttpClient();
+        private readonly HttpClient _http;
 
-        public HomeWizardService(HomeWizardDevice p1Meter)
+        [Obsolete("Use constructor that accepts a HttpClient instead")]
+        public HomeWizardService(HomeWizardDevice p1Meter) : this(p1Meter, new HttpClient())
         {
+        }
+
+        public HomeWizardService(HomeWizardDevice p1Meter, HttpClient httpClient)
+        {
+            _http = httpClient;
             _http.BaseAddress = new Uri($"http://{p1Meter.IPAddress}/api/");
         }
 
@@ -27,13 +33,13 @@ namespace Fg.HomeWizard.EnergyApi.Client
             var json = await response.Content.ReadAsStringAsync();
 
             var measurement = JsonSerializer.Deserialize<Measurement>(json);
-
-            measurement.Timestamp = DateTimeOffset.UtcNow;
-
+            
             if (measurement == null)
             {
                 throw new InvalidOperationException("Unable to deserialize response to model");
             }
+
+            measurement.Timestamp = DateTimeOffset.UtcNow;
 
             return measurement;
         }
